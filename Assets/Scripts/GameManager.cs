@@ -1,5 +1,6 @@
 using System.Data;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Gamemanager : MonoBehaviour
@@ -21,7 +22,7 @@ public class Gamemanager : MonoBehaviour
 
     // 싱글톤
     public static Gamemanager instance;
-    
+
     private void Awake()
     {
         if (instance == null) instance = this;
@@ -32,7 +33,7 @@ public class Gamemanager : MonoBehaviour
         Time.timeScale = 1.0f;
     }
 
- 
+
     void Update()
     {
         if (!(cardcount == 0 || timeover)) // 카드카운트가 0이 되거나 타임오버가 되면 타이머 정지
@@ -43,7 +44,7 @@ public class Gamemanager : MonoBehaviour
 
         if (timer_time > 70) // 타임오버 시 엔딩
         {
-            timeover = true;          
+            timeover = true;
             endtext.SetActive(true);
             EngingIMG.SetActive(true);
         }
@@ -67,8 +68,7 @@ public class Gamemanager : MonoBehaviour
 
         if (cardcount == 0) // 게임 클리어 시 엔딩
         {
-            EngingIMG.SetActive(true);
-            endtext.SetActive(true);
+            SceneManager.LoadScene("EndScene");
         }
     }
 }

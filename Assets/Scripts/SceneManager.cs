@@ -8,4 +8,8 @@ public class Retrybtn : MonoBehaviour
     {
         SceneManager.LoadScene("MainScene");
     }
+    public void StartScene()
+    {
+        SceneManager.LoadScene("StartScene");
+    }
 }
