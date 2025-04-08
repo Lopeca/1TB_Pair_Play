@@ -1,7 +1,7 @@
 using System.Linq;
 using UnityEngine;
 
-public class board : MonoBehaviour
+public class Board : MonoBehaviour
 {
 
 
@@ -19,7 +19,7 @@ public class board : MonoBehaviour
             float x = (i % 4) * 1.4f - 2.1f;
             float y = (i % 5) * 1.4f - 4.0f;
             go.transform.position = new Vector2(x, y);
-            go.GetComponent<card>().Setting(arr[i]);
+            go.GetComponent<Card>().Setting(arr[i]);
 
         }
 

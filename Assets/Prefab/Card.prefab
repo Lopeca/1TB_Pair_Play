@@ -460,7 +460,7 @@ MonoBehaviour:
   front: {fileID: 2914789796802865403}
   back: {fileID: 5459469440601091407}
   Anim: {fileID: 6912823873631281635}
-  mybutton: {fileID: 0}
+  mybutton: {fileID: 1108253011721757054}
   frontimage: {fileID: 6755486438531906988}
 --- !u!95 &6912823873631281635
 Animator:

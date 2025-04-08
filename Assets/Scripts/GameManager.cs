@@ -1,5 +1,6 @@
 using System.Data;
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 using UnityEngine.UI;
 
 public class Gamemanager : MonoBehaviour
@@ -12,12 +13,13 @@ public class Gamemanager : MonoBehaviour
     public Text timeTXT;
     //이하 카드 뒤집기 로직 관련
     public int cardcount = 0;
-    public card firstcard;
-    public card secondcard;
+    public Card firstcard;
+    public Card secondcard;
     // 이하 게임 엔딩 관련 : 타임오버 시와 클리어 시의 UI 변화는 논의 후 제작 예정
     public GameObject endtext;
     public GameObject EngingIMG;
     public bool timeover = false;
+    public float clickcounter = 0;
 
     // 싱글톤
     public static Gamemanager instance;
@@ -43,7 +45,16 @@ public class Gamemanager : MonoBehaviour
 
         if (timer_time > 70) // 타임오버 시 엔딩
         {
-            timeover = true;          
+            timeover = true;
+            timeTXT.text = "<color=red>타임 오버!</color>";
+            endtext.SetActive(true);
+            EngingIMG.SetActive(true);
+        }
+
+        if (clickcounter >= 10) // 스킵 시 엔딩
+        {
+            cardcount = 0;
+            timeTXT.text = "<color=blue>스킵!</color>";
             endtext.SetActive(true);
             EngingIMG.SetActive(true);
         }
@@ -65,8 +76,9 @@ public class Gamemanager : MonoBehaviour
         firstcard = null;
         secondcard = null;
 
-        if (cardcount == 0) // 게임 클리어 시 엔딩
+        if (cardcount == 0) // 게임 노말 클리어 시 엔딩
         {
+            timeTXT.text = "<color=blue>클리어!</color>";
             EngingIMG.SetActive(true);
             endtext.SetActive(true);
         }

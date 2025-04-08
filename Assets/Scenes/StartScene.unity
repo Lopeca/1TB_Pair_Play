@@ -614,7 +614,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0758da9265d76b4f8530c24161b9bb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgm: {fileID: 8300000, guid: 8e87c71703d992549ba53cb75d22511a, type: 3}
+  titlebgm: {fileID: 8300000, guid: ba14b8ed257e83d4d99c08da1786def4, type: 3}
+  gamebgm: {fileID: 8300000, guid: 8e87c71703d992549ba53cb75d22511a, type: 3}
 --- !u!4 &1105942254
 Transform:
   m_ObjectHideFlags: 0
