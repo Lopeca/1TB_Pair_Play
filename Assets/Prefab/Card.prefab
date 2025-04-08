@@ -419,6 +419,7 @@ GameObject:
   - component: {fileID: -4371983766739000840}
   - component: {fileID: 6912823873631281635}
   - component: {fileID: 4160518407539362812}
+  - component: {fileID: 9116839430940687035}
   m_Layer: 0
   m_Name: Card
   m_TagString: Untagged
@@ -460,8 +461,9 @@ MonoBehaviour:
   front: {fileID: 2914789796802865403}
   back: {fileID: 5459469440601091407}
   Anim: {fileID: 6912823873631281635}
-  mybutton: {fileID: 0}
+  mybutton: {fileID: 1108253011721757054}
   frontimage: {fileID: 6755486438531906988}
+  designatedPosition: {x: 0, y: 0, z: 0}
 --- !u!95 &6912823873631281635
 Animator:
   serializedVersion: 5
@@ -579,3 +581,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!210 &9116839430940687035
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7675707027578054869}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 1
