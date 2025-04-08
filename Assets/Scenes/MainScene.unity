@@ -248,8 +248,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   destroyclip: {fileID: 8300000, guid: 6a804b55bc986564897b52f9be768be6, type: 3}
-  cardcount: 0
   timeTXT: {fileID: 31992767}
+  cardcount: 0
   firstcard: {fileID: 0}
   secondcard: {fileID: 0}
   endtext: {fileID: 1033981119}
@@ -583,7 +583,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.019607842, g: 1, b: 0.71282387, a: 0}
+  m_BackGroundColor: {r: 0.45490196, g: 0.6666667, b: 1, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
