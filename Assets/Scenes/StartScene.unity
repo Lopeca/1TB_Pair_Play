@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 171209252}
   - component: {fileID: 171209251}
   m_Layer: 5
-  m_Name: Start
+  m_Name: StartBtn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -350,7 +350,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.019607844, g: 1, b: 0.7137255, a: 0}
+  m_BackGroundColor: {r: 0.019607842, g: 1, b: 0.62367916, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -710,6 +710,7 @@ GameObject:
   - component: {fileID: 1521366577}
   - component: {fileID: 1521366576}
   - component: {fileID: 1521366575}
+  - component: {fileID: 1521366579}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -801,6 +802,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1521366579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1521366574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42e617fdf162db746b45e20e4d47e761, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  imagePrefabs:
+  - {fileID: 7204657161892423971, guid: 7207651429e0af34cb07cd1ed980f1fb, type: 3}
+  - {fileID: 5219840936048137069, guid: 0d9077401a1f93f428175761d435e0e1, type: 3}
+  - {fileID: 2090278691106598020, guid: 72ba6455617be5f4e8b5a8db5d1555df, type: 3}
+  - {fileID: 8986534406582772017, guid: e8ed49e7b9c42fb4cada6f95da75e920, type: 3}
+  - {fileID: 5412243009058068315, guid: 3a361857b113a024babc83d9348447a5, type: 3}
+  canvasTransform: {fileID: 1521366578}
+  time: 0.8
 --- !u!1 &2060140797
 GameObject:
   m_ObjectHideFlags: 0
