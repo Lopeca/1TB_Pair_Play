@@ -24,7 +24,7 @@ public class Card : MonoBehaviour
 
     void Update()
     {
-        if (GameManager.instance.timeover)
+        if (Gamemanager.instance.timeover)
         {
             Anim.SetBool("timeover", true); // 타임오버 시 카드 흔들리는 애니메이션을 정지하기 위함 : 애니메이션 컨트롤러 확인부탁
             mybutton.interactable = false; // 타임오버 시 즉시 카드의 버튼이 눌리지 않도록 버튼 상호작용 off
@@ -43,14 +43,14 @@ public class Card : MonoBehaviour
         Anim.SetBool("Isopen", true);
         front.SetActive(true);
         back.SetActive(false);
-        if (GameManager.instance.firstcard == null)
+        if (Gamemanager.instance.firstcard == null)
         {
-            GameManager.instance.firstcard = this;
+            Gamemanager.instance.firstcard = this;
         }
         else
         {
-            GameManager.instance.secondcard = this;
-            GameManager.instance.IsSameCard();
+            Gamemanager.instance.secondcard = this;
+            Gamemanager.instance.IsSameCard();
         }
     }
 
@@ -61,7 +61,6 @@ public class Card : MonoBehaviour
 
     public void CloseCard()
     {
-        frontimage.color = new Color(1, 0.66f, 0.66f);
         Invoke("CloseTimeDelay", 1.0f);
     }
 
@@ -75,7 +74,6 @@ public class Card : MonoBehaviour
         Anim.SetBool("Isopen", false);
         front.SetActive(false);
         back.SetActive(true);
-        frontimage.color = Color.white;
     }
     // firstcard가 비었다면 firstcard에 내 정보를 넘겨준다.
     // firstcard가 비어 있지 않다면 secondcard에 내 정보를 넘겨주고 matched함수를 불러온다.
