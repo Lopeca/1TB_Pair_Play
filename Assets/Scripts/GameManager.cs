@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class Gamemanager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
     // 이하 오디오 관련
     AudioSource AudioSource;
@@ -21,7 +21,7 @@ public class Gamemanager : MonoBehaviour
     public bool timeover = false;
 
     // 싱글톤
-    public static Gamemanager instance;
+    public static GameManager instance;
 
     private void Awake()
     {

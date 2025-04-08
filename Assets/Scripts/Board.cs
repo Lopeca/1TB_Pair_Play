@@ -35,7 +35,7 @@ public class Board : MonoBehaviour
             cardComponent.SortLayer(i);
         }
 
-        Gamemanager.instance.cardcount = arr.Length;
+        GameManager.instance.cardcount = arr.Length;
         StartCoroutine(PlayPlacementAnimation());
 
     }
