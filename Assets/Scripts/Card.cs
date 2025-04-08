@@ -1,8 +1,9 @@
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 
-public class card : MonoBehaviour
+public class Card : MonoBehaviour
 {
     AudioSource AudioSource;
     public AudioClip clip;
@@ -12,10 +13,11 @@ public class card : MonoBehaviour
     public Animator Anim;
     public Button mybutton;
     public SpriteRenderer frontimage;
+    public Vector3 designatedPosition;
 
     void Start()
     {
-        mybutton = GetComponentInChildren<Button>(); // 버튼 직접 할당하지 않고 Card 자식에 있는 버튼 자동서칭
+        // mybutton = GetComponentInChildren<Button>(); // 버튼 직접 할당하지 않고 Card 자식에 있는 버튼 자동서칭
         mybutton.interactable = true; // 타임오버나 게임 종료 시 카드가 눌리지 않도록 상호작용 여부 on,off 관리
         AudioSource = GetComponent<AudioSource>();
     }
@@ -75,5 +77,11 @@ public class card : MonoBehaviour
     }
     // firstcard가 비었다면 firstcard에 내 정보를 넘겨준다.
     // firstcard가 비어 있지 않다면 secondcard에 내 정보를 넘겨주고 matched함수를 불러온다.
+
+    public void SortLayer(int num)
+    {
+        GetComponent<SortingGroup>().sortingOrder = num;
+        GetComponentInChildren<Canvas>().sortingOrder = num;
+    }
 
 }

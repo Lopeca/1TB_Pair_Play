@@ -12,8 +12,8 @@ public class Gamemanager : MonoBehaviour
     public Text timeTXT;
     //이하 카드 뒤집기 로직 관련
     public int cardcount = 0;
-    public card firstcard;
-    public card secondcard;
+    public Card firstcard;
+    public Card secondcard;
     // 이하 게임 엔딩 관련 : 타임오버 시와 클리어 시의 UI 변화는 논의 후 제작 예정
     public GameObject endtext;
     public GameObject EngingIMG;
