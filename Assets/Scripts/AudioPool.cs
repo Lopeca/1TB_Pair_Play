@@ -62,7 +62,7 @@ public class AudioPool : MonoBehaviour
             available.Play();
         }
     }
-
+    // 아래는 반복이라 그냥 둠. sfx 말고 bgm으로. bgm은 동시에 하나만 재생하기에 오디오소스 1개(bgm_AudioSource)만 이용.
     public void PlayBGM(int bgm_index, float bgm_volume = 1f)
     {
         if (bgm_index < 0 || bgm_index >= bgmClips.Length || bgmClips[bgm_index] == null) return;

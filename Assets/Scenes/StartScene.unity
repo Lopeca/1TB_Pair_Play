@@ -136,7 +136,6 @@ GameObject:
   - component: {fileID: 171209253}
   - component: {fileID: 171209252}
   - component: {fileID: 171209255}
-  - component: {fileID: 171209256}
   m_Layer: 5
   m_Name: StartBtn
   m_TagString: Untagged
@@ -208,9 +207,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 171209255}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: BtnSfx, Assembly-CSharp
-        m_MethodName: PlayClickSound
+        m_MethodName: 
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -267,106 +266,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 171209249}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3b8e922eb28095149b2e22c71e01f1ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ebe801cf1c13194b816af8f19fa4be0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clickSfx: {fileID: 8300000, guid: 863d6afb9edae75448237a93ca53ef62, type: 3}
---- !u!82 &171209256
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 171209249}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  to_endscene_btn: {fileID: 0}
+  to_mainscene_btn: {fileID: 171209252}
+  to_startscene_btn: {fileID: 0}
+  is_counting: 0
+  clickcount: 0
 --- !u!1 &364465034
 GameObject:
   m_ObjectHideFlags: 0
@@ -791,7 +698,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0758da9265d76b4f8530c24161b9bb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgm: {fileID: 8300000, guid: 8e87c71703d992549ba53cb75d22511a, type: 3}
+  sfxClips:
+  - {fileID: 8300000, guid: 863d6afb9edae75448237a93ca53ef62, type: 3}
+  - {fileID: 8300000, guid: 84b788b24e5865849a543ba0c13bc8c0, type: 3}
+  - {fileID: 8300000, guid: 6a804b55bc986564897b52f9be768be6, type: 3}
+  - {fileID: 8300000, guid: 4a1e1dc953e829f4e805cfa227d4dd1a, type: 3}
+  bgmClips:
+  - {fileID: 8300000, guid: fedefff81ef61284ea066c18c7098bc6, type: 3}
+  - {fileID: 8300000, guid: 8e87c71703d992549ba53cb75d22511a, type: 3}
+  - {fileID: 8300000, guid: 4931fcdf2d0a3cf4c947e7e91263033c, type: 3}
+  sfxPoolSize: 10
 --- !u!4 &1105942254
 Transform:
   m_ObjectHideFlags: 0

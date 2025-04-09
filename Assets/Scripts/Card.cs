@@ -35,6 +35,7 @@ public class Card : MonoBehaviour
     public void OpenCard()
     {
         Anim.SetBool("Isopen", true);
+        AudioPool.Instance.PlaySFX(1, 0.1f);
         front.SetActive(true);
         back.SetActive(false);
         if (Gamemanager.Instance.firstcard == null)
@@ -50,6 +51,7 @@ public class Card : MonoBehaviour
 
     public void DestroyCard()
     {
+        AudioPool.Instance.PlaySFX(2, 0.1f);
         Invoke("DestroyTimeDelay", 1.0f);
     }
 

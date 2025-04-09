@@ -23,6 +23,7 @@ public class MemberCard : MonoBehaviour
     {
         // 초기 이미지 인덱스 설정
         currentSpriteIndex = startSpriteIndex;
+        AudioPool.Instance.PlayBGM(0, 0.1f);
         UpdateSprite();
 
         // 버튼 이벤트 리스너 등록
@@ -40,6 +41,7 @@ public class MemberCard : MonoBehaviour
     {
         Debug.Log("NextSprite() 호출됨. 현재 인덱스: " + currentSpriteIndex);
         currentSpriteIndex++;
+        AudioPool.Instance.PlaySFX(0, 0.1f);
         if (currentSpriteIndex > endSpriteIndex)
         {
             currentSpriteIndex = startSpriteIndex;
@@ -51,6 +53,7 @@ public class MemberCard : MonoBehaviour
     public void PreviousSprite()
     {
         currentSpriteIndex--;
+        AudioPool.Instance.PlaySFX(0, 0.1f);
         if (currentSpriteIndex < startSpriteIndex)
         {
             currentSpriteIndex = endSpriteIndex;
