@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.ShaderGraph.Internal;
 using UnityEngine;
 using UnityEngine.Rendering;
 
@@ -29,13 +28,13 @@ public class Board : MonoBehaviour
             cards.Add(cardComponent);
             cardComponent.Setting(arr[i]);
             cardComponent.designatedPosition = new Vector2(x, y);
-            Debug.Log("버튼 : " + cardComponent.mybutton);
-            cardComponent.mybutton.interactable = false;
+            Debug.Log("버튼 : " + cardComponent.card_BTN);
+            cardComponent.card_BTN.interactable = false;
 
             cardComponent.SortLayer(i);
         }
 
-        Gamemanager.instance.cardcount = arr.Length;
+        Gamemanager.Instance.cardcount = arr.Length;
         StartCoroutine(PlayPlacementAnimation());
 
     }
@@ -68,7 +67,7 @@ public class Board : MonoBehaviour
         cards.ForEach(card =>
         {
             card.transform.position = card.designatedPosition;
-            card.mybutton.interactable = true;
+            card.card_BTN.interactable = true;
         });
 
 
