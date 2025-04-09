@@ -23,7 +23,7 @@ public class MemberCard : MonoBehaviour
     {
         // 초기 이미지 인덱스 설정
         currentSpriteIndex = startSpriteIndex;
-        AudioPool.Instance.PlayBGM(0, 0.1f);
+        AudioPool.Instance.PlayBGM(2, 0.1f);
         UpdateSprite();
 
         // 버튼 이벤트 리스너 등록

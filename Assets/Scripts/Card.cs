@@ -57,6 +57,7 @@ public class Card : MonoBehaviour
 
     public void CloseCard()
     {
+        frontimage.color = new Color(1f, 0.6f, 0.6f, 1f);
         Invoke("CloseTimeDelay", 1.0f);
     }
 
@@ -67,6 +68,7 @@ public class Card : MonoBehaviour
 
     public void CloseTimeDelay()
     {
+        frontimage.color = Color.white;
         Anim.SetBool("Isopen", false);
         front.SetActive(false);
         back.SetActive(true);

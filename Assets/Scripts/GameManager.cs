@@ -41,6 +41,7 @@ public class Gamemanager : MonoBehaviour
         if (timer_time <= 0f && !isTimeover) // 타임오버 시 엔딩
         {
             isTimeover = true;
+            timer_txt.text = "<color=red>타임 오버!</color>";
             timeover_txt.SetActive(true);
             timeover_IMG.SetActive(true);
         }
@@ -54,7 +55,6 @@ public class Gamemanager : MonoBehaviour
     {
         if (firstcard.idx == secondcard.idx)
         {
-            
             firstcard.DestroyCard();
             secondcard.DestroyCard();
             cardcount -= 2;

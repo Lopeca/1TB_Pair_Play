@@ -14,9 +14,9 @@ public class SceneTransitBtn : MonoBehaviour
     // 스킵 버튼 관련 변수 선언
     void Start()
     {
-        to_endscene_btn.onClick.AddListener(SkipCardMatching);
-        to_mainscene_btn.onClick.AddListener(()=>StartCoroutine(ToMainScene()));
-        to_startscene_btn.onClick.AddListener(()=>StartCoroutine(ToStartScene()));
+        to_endscene_btn?.onClick.AddListener(SkipCardMatching);
+        to_mainscene_btn?.onClick.AddListener(()=>StartCoroutine(ToMainScene()));
+        to_startscene_btn?.onClick.AddListener(()=>StartCoroutine(ToStartScene()));
     }
 
     void SkipCardMatching()
@@ -28,7 +28,7 @@ public class SceneTransitBtn : MonoBehaviour
     IEnumerator ClicktoSkip()
     {
         is_counting = true;
-        float clickcount = 0f;
+        clickcount = 0f;
         while (clickcount < 10f)
         {
             clickcount -= Time.deltaTime;
