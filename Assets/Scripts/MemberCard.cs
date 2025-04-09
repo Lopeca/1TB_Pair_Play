@@ -39,23 +39,23 @@ public class MemberCard : MonoBehaviour
     public void NextSprite()
     {
         Debug.Log("NextSprite() 호출됨. 현재 인덱스: " + currentSpriteIndex);
-        currentSpriteIndex++;
-        if (currentSpriteIndex > endSpriteIndex)
+        currentSpriteIndex++; // 현재 인덱스 증가
+        if (currentSpriteIndex > endSpriteIndex) // 만약 인덱스가 종료 인덱스를 초과하면
         {
-            currentSpriteIndex = startSpriteIndex;
+            currentSpriteIndex = startSpriteIndex; // 시작 인덱스로 돌아감
         }
-        UpdateSprite();
+        UpdateSprite(); // 스프라이트 업데이트
     }
 
     // 이전 이미지로 전환하는 메소드
     public void PreviousSprite()
     {
-        currentSpriteIndex--;
-        if (currentSpriteIndex < startSpriteIndex)
+        currentSpriteIndex--; // 현재 인덱스 감소
+        if (currentSpriteIndex < startSpriteIndex) // 만약 인덱스가 시작 인덱스를 미만이면
         {
-            currentSpriteIndex = endSpriteIndex;
+            currentSpriteIndex = endSpriteIndex; // 종료 인덱스로 돌아감
         }
-        UpdateSprite();
+        UpdateSprite(); // 스프라이트 업데이트
     }
 
     // Resources 폴더에서 스프라이트를 로드하여 SpriteRenderer에 적용
@@ -63,11 +63,11 @@ public class MemberCard : MonoBehaviour
     {
         // 숫자가 두 자리 형식("01", "02")으로 표시되도록 포맷
         string spriteName = "Member_" + currentSpriteIndex.ToString("D2");
-        Sprite newSprite = Resources.Load<Sprite>(spriteName);
+        Sprite newSprite = Resources.Load<Sprite>(spriteName); // 스프라이트 로드
 
-        if (newSprite != null)
+        if (newSprite != null) // 스프라이트가 존재하면
         {
-            spriteRenderer.sprite = newSprite;
+            spriteRenderer.sprite = newSprite; // 스프라이트 렌더러에 새 스프라이트 적용
         }
         else
         {
