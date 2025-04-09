@@ -53,10 +53,8 @@ public class Board : MonoBehaviour
             for (int i = 0; i < cards.Count; i++) {
                 {
                     Card card = cards[i];
-                    Vector3 from = card.transform.position;
-                    Vector3 to = card.designatedPosition;
+
                     float t = (time -  (duration - individualDuration) / cards.Count * i) / individualDuration;
-                    if (t > 1f) t = 1f;
                    
                     card.transform.position = Vector3.Lerp(cardInitPos, card.designatedPosition, 1 - (1 - t) * (1 - t)); // lerp 마지막 항은 ease-out 식
                 }
@@ -70,8 +68,6 @@ public class Board : MonoBehaviour
             card.transform.position = card.designatedPosition;
             card.mybutton.interactable = true;
         });
-
-
     }
 }
 
