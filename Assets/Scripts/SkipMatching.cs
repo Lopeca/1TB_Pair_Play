@@ -1,9 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+
+#if UNITY_EDITOR
+using UnityEditor.SearchService;
+#endif
 
 public class SkipMatching : MonoBehaviour
 {
