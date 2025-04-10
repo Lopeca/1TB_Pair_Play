@@ -75,5 +75,7 @@ public class MemberCard : MonoBehaviour
         {
             Debug.LogWarning("스프라이트를 찾을 수 없습니다: " + spriteName);
         }
+
+
     }
 }

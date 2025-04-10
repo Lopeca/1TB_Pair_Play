@@ -27,10 +27,10 @@ public class Board : MonoBehaviour
             Card cardComponent = go.GetComponent<Card>();
             cards.Add(cardComponent);
             cardComponent.Setting(arr[i]);
-            cardComponent.designatedPosition = new Vector2(x, y);
+            cardComponent.designatedPosition = new Vector2(x, y);            
             Debug.Log("¹öÆ° : " + cardComponent.card_BTN);
             cardComponent.card_BTN.interactable = false;
-
+            
             cardComponent.SortLayer(i);
         }
 
