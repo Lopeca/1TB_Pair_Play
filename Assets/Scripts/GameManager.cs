@@ -70,6 +70,7 @@ public class Gamemanager : MonoBehaviour
 
         if (cardcount == 0) // 게임 클리어 시 엔딩
         {
+            AudioPool.Instance.PlayBGM(2, 0.01f);
             SceneManager.LoadScene("EndScene");
         }
     }
