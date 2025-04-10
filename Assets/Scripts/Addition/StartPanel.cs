@@ -11,13 +11,11 @@ public class StartPanel : MonoBehaviour
     public void OnClickDemoGameBtn()
     {
         
-        AudioPool.Instance.PlayBGM(1, 0.01f);
+        AudioPool.Instance.PlayBGM(1, 0.02f);
         SceneManager.LoadScene("MainScene");
     }
     public void OnClickLevelSelectMenu()
     {
         MenuManager.Instance.OpenMenu(levelSelectPanel);
     }
-
-
 }

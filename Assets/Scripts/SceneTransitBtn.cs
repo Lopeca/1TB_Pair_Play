@@ -61,6 +61,7 @@ public class SceneTransitBtn : MonoBehaviour
         yield return new WaitForSeconds(0.4f);
         to_startscene_btn.interactable = true;
         AudioPool.Instance.PlayBGM(0,0.01f);
+        LevelDataCarrier.Instance.levelNum = -1;
         SceneManager.LoadScene("StartScene");
     }
 
