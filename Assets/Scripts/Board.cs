@@ -20,8 +20,8 @@ public class Board : MonoBehaviour
     private LevelData levelData;
     void Start()
     {
-        
-        if(LevelDataCarrier.Instance.levelNum == -1)
+
+        if (LevelDataCarrier.Instance.levelNum == -1)
         {
             LoadDemo();
         }
@@ -30,7 +30,6 @@ public class Board : MonoBehaviour
         {
             LoadLevelByDataCarrier();
         }
-
         Destroy(boardRect.gameObject);
         StartCoroutine(PlayPlacementAnimation());
 
@@ -50,18 +49,20 @@ public class Board : MonoBehaviour
 
         for (int i = 0; i < rows; i++)
         {
-            for(int j = 0; j < cols; j++)
+            for (int j = 0; j < cols; j++)
             {
                 if (levelData.cardsPositions[i * cols + j] == 1)
                 {
                     GameObject cardGO = Instantiate(card, transform);
                     Card cardComponent = cardGO.GetComponent<Card>();
-                    
+
                     cardComponent.card_BTN.interactable = false;
 
-                    Vector3 offset = new Vector3(cellWidth * (i + 0.5f), cellHeight * (j + 0.5f), 0);
+                    Vector3 offset = new Vector3(cellWidth * (j + 0.5f), cellHeight * (i + 0.5f), 0);
                     Vector3 screenPos = RectTransformUtility.WorldToScreenPoint(null, boardRect.position + offset);
                     Vector3 worldPos = Camera.main.ScreenToWorldPoint(screenPos);
+
+                    if (i == 0 && j == 0) Debug.Log("첫번째 카드 포지션 : " + worldPos);
                     cardComponent.designatedPosition = worldPos + new Vector3(0, 0, 10);
                     cardComponent.transform.localScale = Vector3.one * levelData.cardScale;
                     cards.Add(cardComponent);
@@ -70,11 +71,11 @@ public class Board : MonoBehaviour
         }
 
         List<int> arr = GenerateNumbers();
-        for(int i = 0;i < cards.Count; i++)
+        for (int i = 0; i < cards.Count; i++)
         {
             Card card = cards[i];
             card.Setting(arr[i]);
-            card.SortLayer(i);            
+            card.SortLayer(i);
         }
         Gamemanager.Instance.cardcount = arr.Count;
     }
@@ -82,13 +83,13 @@ public class Board : MonoBehaviour
     private List<int> GenerateNumbers()
     {
         List<int> arr = new List<int>();
-        
+
         int cardsAmount = cards.Count;
-        
+
         // �� ����������� ¦ ��
         int needPair = cardsAmount / 2;
 
-        for(int i = 0; i < needPair; i++)
+        for (int i = 0; i < needPair; i++)
         {
             arr.Add(i % 10);
             arr.Add(i % 10);
@@ -117,10 +118,10 @@ public class Board : MonoBehaviour
             Card cardComponent = go.GetComponent<Card>();
             cards.Add(cardComponent);
             cardComponent.Setting(arr[i]);
-            cardComponent.designatedPosition = new Vector2(x, y);            
+            cardComponent.designatedPosition = new Vector2(x, y);
             Debug.Log("��ư : " + cardComponent.card_BTN);
             cardComponent.card_BTN.interactable = false;
-            
+
             cardComponent.SortLayer(i);
         }
 
@@ -130,24 +131,25 @@ public class Board : MonoBehaviour
     IEnumerator PlayPlacementAnimation()
     {
         yield return new WaitForSeconds(0.4f);
-        
+
         float time = 0f;
         float duration = 1f;
         float individualDuration = 0.3f;
-        AudioPool.Instance.PlaySFX(3,0.1f);
-        cards = cards.OrderBy(x=>Random.Range(0,100)).ToList();
+        AudioPool.Instance.PlaySFX(3, 0.1f);
+        cards = cards.OrderBy(x => Random.Range(0, 100)).ToList();
         while (time < duration)
         {
             time += Time.deltaTime;
-            for (int i = 0; i < cards.Count; i++) {
+            for (int i = 0; i < cards.Count; i++)
+            {
                 {
                     Card card = cards[i];
 
-                    float t = (time -  (duration - individualDuration) / cards.Count * i) / individualDuration;
+                    float t = (time - (duration - individualDuration) / cards.Count * i) / individualDuration;
                     if (t > 1) t = 1;
                     card.transform.position = Vector3.Lerp(cardInitPos, card.designatedPosition, 1 - (1 - t) * (1 - t)); // lerp ������ ���� ease-out ��
                 }
-             }
+            }
 
             yield return null;
         }

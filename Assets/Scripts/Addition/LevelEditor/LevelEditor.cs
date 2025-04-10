@@ -39,13 +39,13 @@ public class LevelEditor : MonoBehaviour
         levelData = new LevelData();
         
         this.width = width;
-        levelData.rows = width;
+        levelData.cols = width;
         this.height = height;
-        levelData.cols = height;
+        levelData.rows = height;
 
         levelData.cardsPositions = new int[width * height];
 
-        cells = new Cell[width, height];
+        cells = new Cell[height, width];
         
         //보드에 셀 배치
         for (int i = 0; i < height; i++)
@@ -75,7 +75,7 @@ public class LevelEditor : MonoBehaviour
                 //card.transform.position = worldPos;
 
                 cellComponent.worldPos = worldPos;
-                cells[j,i] = cellComponent;
+                cells[i,j] = cellComponent;
             }
         }
 
