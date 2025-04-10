@@ -119,7 +119,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 1878212785929555609}
   m_OnClick:
     m_PersistentCalls:
@@ -513,7 +513,7 @@ MonoBehaviour:
   idx: 0
   front: {fileID: 2914789796802865403}
   back: {fileID: 5459469440601091407}
-  Anim: {fileID: 0}
+  Anim: {fileID: 4499229225807340018}
   mybutton: {fileID: 1108253011721757054}
   frontimage: {fileID: 6755486438531906988}
   designatedPosition: {x: 0, y: 0, z: 0}

@@ -9,7 +9,7 @@ public class BoardSettingPanel : MonoBehaviour
     public int width = 1;
     public int height = 1;
 
-    public int maxSize = 40;
+    int maxSize = 100;
     public Text widthText;
     public Text heightText;
 

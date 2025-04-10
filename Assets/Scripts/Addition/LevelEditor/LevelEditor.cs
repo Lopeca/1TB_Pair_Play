@@ -17,7 +17,7 @@ public class LevelEditor : MonoBehaviour
     public int width = 1;
     public int height = 1;
 
-    public int scale = 1;
+    public float scale = 1;
 
     public Cell[,] cells;
 
@@ -39,9 +39,9 @@ public class LevelEditor : MonoBehaviour
         levelData = new LevelData();
         
         this.width = width;
-        levelData.width = width;
+        levelData.rows = width;
         this.height = height;
-        levelData.height = height;
+        levelData.cols = height;
 
         levelData.cardsPositions = new int[width * height];
 

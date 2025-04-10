@@ -19,8 +19,9 @@ public class RandomImageShow : MonoBehaviour
         }
     }
 
-    void Start()
+    void OnEnable()
     {
+        Debug.Log("랜덤이미지 실행");
         StartCoroutine(SpawnLoop());
     }
 
