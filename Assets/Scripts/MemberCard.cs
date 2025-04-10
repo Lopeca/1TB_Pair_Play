@@ -40,6 +40,7 @@ public class MemberCard : MonoBehaviour
     {
         Debug.Log("NextSprite() 호출됨. 현재 인덱스: " + currentSpriteIndex);
         currentSpriteIndex++;
+        AudioPool.Instance.PlaySFX(0, 0.05f);
         if (currentSpriteIndex > endSpriteIndex)
         {
             currentSpriteIndex = startSpriteIndex;
@@ -51,6 +52,7 @@ public class MemberCard : MonoBehaviour
     public void PreviousSprite()
     {
         currentSpriteIndex--;
+        AudioPool.Instance.PlaySFX(0, 0.05f);
         if (currentSpriteIndex < startSpriteIndex)
         {
             currentSpriteIndex = endSpriteIndex;
@@ -73,5 +75,7 @@ public class MemberCard : MonoBehaviour
         {
             Debug.LogWarning("스프라이트를 찾을 수 없습니다: " + spriteName);
         }
+
+
     }
 }

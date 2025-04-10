@@ -509,7 +509,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5653a135814652b4a9e241e2829108be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: 84b788b24e5865849a543ba0c13bc8c0, type: 3}
   idx: 0
   front: {fileID: 2914789796802865403}
   back: {fileID: 5459469440601091407}

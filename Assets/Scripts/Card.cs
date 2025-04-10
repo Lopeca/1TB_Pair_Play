@@ -5,62 +5,61 @@ using UnityEngine.UI;
 
 public class Card : MonoBehaviour
 {
-    AudioSource AudioSource;
-    public AudioClip clip;
     public int idx = 0;
     public GameObject front;
     public GameObject back;
     public Animator Anim;
-    public Button mybutton;
+    public Button card_BTN;
     public SpriteRenderer frontimage;
     public Vector3 designatedPosition;
 
     void Start()
     {
-        // mybutton = GetComponentInChildren<Button>(); // ¹öÆ° Á÷Á¢ ÇÒ´çÇÏÁö ¾Ê°í Card ÀÚ½Ä¿¡ ÀÖ´Â ¹öÆ° ÀÚµ¿¼­Äª
-        //mybutton.interactable = true; // Å¸ÀÓ¿À¹ö³ª °ÔÀÓ Á¾·á ½Ã Ä«µå°¡ ´­¸®Áö ¾Êµµ·Ï »óÈ£ÀÛ¿ë ¿©ºÎ on,off °ü¸®
+        // mybutton = GetComponentInChildren<Button>(); // ï¿½ï¿½Æ° ï¿½ï¿½ï¿½ï¿½ ï¿½Ò´ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ Card ï¿½Ú½Ä¿ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½Æ° ï¿½Úµï¿½ï¿½ï¿½Äª
+        //mybutton.interactable = true; // Å¸ï¿½Ó¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ Ä«ï¿½å°¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½ï¿½È£ï¿½Û¿ï¿½ ï¿½ï¿½ï¿½ï¿½ on,off ï¿½ï¿½ï¿½ï¿½
         AudioSource = GetComponent<AudioSource>();
     }
 
     void Update()
     {
-        if (Gamemanager.instance.timeover)
+        if (Gamemanager.Instance.isTimeover)
         {
-            Anim.SetBool("timeover", true); // Å¸ÀÓ¿À¹ö ½Ã Ä«µå Èçµé¸®´Â ¾Ö´Ï¸ÞÀÌ¼ÇÀ» Á¤ÁöÇÏ±â À§ÇÔ : ¾Ö´Ï¸ÞÀÌ¼Ç ÄÁÆ®·Ñ·¯ È®ÀÎºÎÅ¹
-            mybutton.interactable = false; // Å¸ÀÓ¿À¹ö ½Ã Áï½Ã Ä«µåÀÇ ¹öÆ°ÀÌ ´­¸®Áö ¾Êµµ·Ï ¹öÆ° »óÈ£ÀÛ¿ë off
+            Anim.SetBool("timeover", true); // Å¸ï¿½Ó¿ï¿½ï¿½ï¿½ ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½é¸®ï¿½ï¿½ ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ : ï¿½Ö´Ï¸ï¿½ï¿½Ì¼ï¿½ ï¿½ï¿½Æ®ï¿½Ñ·ï¿½ È®ï¿½Îºï¿½Å¹
+            card_BTN.interactable = false; // Å¸ï¿½Ó¿ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Êµï¿½ï¿½ï¿½ ï¿½ï¿½Æ° ï¿½ï¿½È£ï¿½Û¿ï¿½ off
         }
     }
     public void Setting(int number)
     {
         idx = number;
         frontimage.sprite = Resources.Load<Sprite>($"1TB_{idx}");
-
     }
 
     public void OpenCard()
     {
-        AudioSource.PlayOneShot(clip);
         Anim.SetBool("Isopen", true);
+        AudioPool.Instance.PlaySFX(1, 0.1f);
         front.SetActive(true);
         back.SetActive(false);
-        if (Gamemanager.instance.firstcard == null)
+        if (Gamemanager.Instance.firstcard == null)
         {
-            Gamemanager.instance.firstcard = this;
+            Gamemanager.Instance.firstcard = this;
         }
         else
         {
-            Gamemanager.instance.secondcard = this;
-            Gamemanager.instance.IsSameCard();
+            Gamemanager.Instance.secondcard = this;
+            Gamemanager.Instance.IsSameCard();
         }
     }
 
     public void DestroyCard()
     {
+        AudioPool.Instance.PlaySFX(2, 0.1f);
         Invoke("DestroyTimeDelay", 1.0f);
     }
 
     public void CloseCard()
     {
+        frontimage.color = new Color(1f, 0.6f, 0.6f, 1f);
         Invoke("CloseTimeDelay", 1.0f);
     }
 
@@ -71,12 +70,11 @@ public class Card : MonoBehaviour
 
     public void CloseTimeDelay()
     {
+        frontimage.color = Color.white;
         Anim.SetBool("Isopen", false);
         front.SetActive(false);
         back.SetActive(true);
     }
-    // firstcard°¡ ºñ¾ú´Ù¸é firstcard¿¡ ³» Á¤º¸¸¦ ³Ñ°ÜÁØ´Ù.
-    // firstcard°¡ ºñ¾î ÀÖÁö ¾Ê´Ù¸é secondcard¿¡ ³» Á¤º¸¸¦ ³Ñ°ÜÁÖ°í matchedÇÔ¼ö¸¦ ºÒ·¯¿Â´Ù.
 
     public void SortLayer(int num)
     {

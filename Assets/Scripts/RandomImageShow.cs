@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class RandomImageShow : MonoBehaviour
 {
-    public GameObject[] imagePrefabs;       // ÀÌ¹ÌÁö ÇÁ¸®ÆÕ 5°³
-    public RectTransform canvasTransform;   // ºÎ¸ð Äµ¹ö½º (UI¿ë)
-    public float time = 0.8f;               // »ý¼º ÁÖ±â (ÃÊ)
+    public GameObject[] imagePrefabs;       // ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 5ï¿½ï¿½
+    public RectTransform canvasTransform;   // ï¿½Î¸ï¿½ Äµï¿½ï¿½ï¿½ï¿½ (UIï¿½ï¿½)
+    public float time = 0.8f;               // ï¿½ï¿½ï¿½ï¿½ ï¿½Ö±ï¿½ (ï¿½ï¿½)
 
-    private int lastIndex = -1;             // ¸¶Áö¸·À¸·Î ³ª¿Â ÀÌ¹ÌÁö ÀÎµ¦½º
+    private int lastIndex = -1;             // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½
 
     IEnumerator SpawnLoop()
     {
@@ -21,13 +21,13 @@ public class RandomImageShow : MonoBehaviour
 
     void OnEnable()
     {
-        Debug.Log("·£´ýÀÌ¹ÌÁö ½ÇÇà");
+        AudioPool.Instance.PlayBGM(0, 0.01f);
         StartCoroutine(SpawnLoop());
     }
 
     void ShowImageWithoutRepeat()
     {
-        // ¹«ÀÛÀ§ ÀÎµ¦½º¸¦ °í¸£µÇ, ÀÌÀü°ú ´Ù¸¥ °Í¸¸
+        // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ ï¿½Í¸ï¿½
         int index;
         do
         {
@@ -38,17 +38,17 @@ public class RandomImageShow : MonoBehaviour
         lastIndex = index;
         GameObject prefab = imagePrefabs[index];
 
-        //»ý¼º ¹üÀ§ ¼³Á¤
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         float x = Random.Range(-250f, 250f);
         float y = Random.Range(-100f, 100f);
         Vector2 anchoredPos = new Vector2(x, y);
 
-        //·¥´ý À§Ä¡¿¡ ·¥´ý »ý¼º
+        //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
         GameObject newImage = Instantiate(prefab, canvasTransform);
         RectTransform rect = newImage.GetComponent<RectTransform>();
         rect.anchoredPosition = anchoredPos;
 
-        //ÆÄ±«
+        //ï¿½Ä±ï¿½
         Destroy(newImage, time);
     }
 }

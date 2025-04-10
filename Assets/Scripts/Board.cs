@@ -40,7 +40,7 @@ public class Board : MonoBehaviour
         string json = File.ReadAllText(LevelDataCarrier.Instance.GetLevelFilePath());
         levelData = JsonUtility.FromJson<LevelData>(json);
 
-        Debug.Log("·Îµå ·¹º§" + json);
+        Debug.Log("ï¿½Îµï¿½ ï¿½ï¿½ï¿½ï¿½" + json);
         int rows = levelData.rows;
         int cols = levelData.cols;
 
@@ -84,7 +84,7 @@ public class Board : MonoBehaviour
         
         int cardsAmount = cards.Count;
         
-        // ÃÑ ¸¸µé¾îÁ®¾ßÇÒ Â¦ ¼ö
+        // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Â¦ ï¿½ï¿½
         int needPair = cardsAmount / 2;
 
         for(int i = 0; i < needPair; i++)
@@ -116,10 +116,10 @@ public class Board : MonoBehaviour
             Card cardComponent = go.GetComponent<Card>();
             cards.Add(cardComponent);
             cardComponent.Setting(arr[i]);
-            cardComponent.designatedPosition = new Vector2(x, y);
-            Debug.Log("¹öÆ° : " + cardComponent.mybutton);
-            cardComponent.mybutton.interactable = false;
-
+            cardComponent.designatedPosition = new Vector2(x, y);            
+            Debug.Log("ï¿½ï¿½Æ° : " + cardComponent.card_BTN);
+            cardComponent.card_BTN.interactable = false;
+            
             cardComponent.SortLayer(i);
         }
 
@@ -132,6 +132,7 @@ public class Board : MonoBehaviour
         float time = 0f;
         float duration = 1f;
         float individualDuration = 0.3f;
+        AudioPool.Instance.PlaySFX(3,0.1f);
         cards = cards.OrderBy(x=>Random.Range(0,100)).ToList();
         while (time < duration)
         {
@@ -142,7 +143,7 @@ public class Board : MonoBehaviour
 
                     float t = (time -  (duration - individualDuration) / cards.Count * i) / individualDuration;
                     if (t > 1) t = 1;
-                    card.transform.position = Vector3.Lerp(cardInitPos, card.designatedPosition, 1 - (1 - t) * (1 - t)); // lerp ¸¶Áö¸· Ç×Àº ease-out ½Ä
+                    card.transform.position = Vector3.Lerp(cardInitPos, card.designatedPosition, 1 - (1 - t) * (1 - t)); // lerp ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ease-out ï¿½ï¿½
                 }
              }
 
@@ -152,7 +153,7 @@ public class Board : MonoBehaviour
         cards.ForEach(card =>
         {
             card.transform.position = card.designatedPosition;
-            card.mybutton.interactable = true;
+            card.card_BTN.interactable = true;
         });
     }
 }
