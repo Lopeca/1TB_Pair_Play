@@ -17,7 +17,7 @@ public class Card : MonoBehaviour
     {
         // mybutton = GetComponentInChildren<Button>(); // ��ư ���� �Ҵ����� �ʰ� Card �ڽĿ� �ִ� ��ư �ڵ���Ī
         //mybutton.interactable = true; // Ÿ�ӿ����� ���� ���� �� ī�尡 ������ �ʵ��� ��ȣ�ۿ� ���� on,off ����
-        AudioSource = GetComponent<AudioSource>();
+        
     }
 
     void Update()

@@ -56,7 +56,7 @@ public class Board : MonoBehaviour
                     GameObject cardGO = Instantiate(card, transform);
                     Card cardComponent = cardGO.GetComponent<Card>();
                     
-                    cardComponent.mybutton.interactable = false;
+                    cardComponent.card_BTN.interactable = false;
 
                     Vector3 offset = new Vector3(cellWidth * (i + 0.5f), cellHeight * (j + 0.5f), 0);
                     Vector3 screenPos = RectTransformUtility.WorldToScreenPoint(null, boardRect.position + offset);
@@ -75,7 +75,7 @@ public class Board : MonoBehaviour
             card.Setting(arr[i]);
             card.SortLayer(i);            
         }
-        Gamemanager.instance.cardcount = arr.Count;
+        Gamemanager.Instance.cardcount = arr.Count;
     }
 
     private List<int> GenerateNumbers()
@@ -123,7 +123,7 @@ public class Board : MonoBehaviour
             cardComponent.SortLayer(i);
         }
 
-        Gamemanager.instance.cardcount = arr.Length;
+        Gamemanager.Instance.cardcount = arr.Length;
     }
 
     IEnumerator PlayPlacementAnimation()
