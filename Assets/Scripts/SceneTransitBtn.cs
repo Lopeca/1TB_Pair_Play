@@ -39,7 +39,7 @@ public class SceneTransitBtn : MonoBehaviour
         if (clickcount >= 10f)
         {
             is_counting = false;
-            AudioPool.Instance.PlayBGM(2, 0.1f);
+            AudioPool.Instance.PlayBGM(2, 0.01f);
             SceneManager.LoadScene("EndScene");
         }
     }
@@ -47,20 +47,20 @@ public class SceneTransitBtn : MonoBehaviour
     IEnumerator ToMainScene()
     {
         to_mainscene_btn.interactable = false;
-        AudioPool.Instance.PlaySFX(0, 0.2f);
+        AudioPool.Instance.PlaySFX(0, 0.05f);
         yield return new WaitForSeconds(0.4f);
         to_mainscene_btn.interactable = true;
-        AudioPool.Instance.PlayBGM(1,0.1f);
+        AudioPool.Instance.PlayBGM(1, 0.02f);
         SceneManager.LoadScene("MainScene");
     }
     // 시작신 가는 버튼. 버튼 소리 날 동안 대기해 주는 함수
     IEnumerator ToStartScene()
     {
         to_startscene_btn.interactable = false;
-        AudioPool.Instance.PlaySFX(0, 0.2f);
+        AudioPool.Instance.PlaySFX(0, 0.05f);
         yield return new WaitForSeconds(0.4f);
         to_startscene_btn.interactable = true;
-        AudioPool.Instance.PlayBGM(0,0.1f);
+        AudioPool.Instance.PlayBGM(0,0.01f);
         SceneManager.LoadScene("StartScene");
     }
 

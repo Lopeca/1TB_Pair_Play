@@ -21,7 +21,7 @@ public class RandomImageShow : MonoBehaviour
 
     void Start()
     {
-        AudioPool.Instance.PlayBGM(0, 0.1f);
+        AudioPool.Instance.PlayBGM(0, 0.01f);
         StartCoroutine(SpawnLoop());
     }
 

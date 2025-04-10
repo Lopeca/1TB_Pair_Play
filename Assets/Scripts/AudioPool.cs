@@ -67,12 +67,15 @@ public class AudioPool : MonoBehaviour
     {
         if (bgm_index < 0 || bgm_index >= bgmClips.Length || bgmClips[bgm_index] == null) return;
 
-        if (bgm_AudioSource != bgmClips[bgm_index])
+        if (bgm_AudioSource.clip != bgmClips[bgm_index])
         {
+            StopBGM();
             bgm_AudioSource.clip = bgmClips[bgm_index];
             bgm_AudioSource.volume = bgm_volume;
             bgm_AudioSource.Play();
         }
+        Debug.Log(bgm_index);
+        Debug.Log(bgm_volume);
     }
 
     public void StopBGM()
