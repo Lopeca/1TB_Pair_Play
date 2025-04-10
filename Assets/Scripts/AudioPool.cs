@@ -28,6 +28,11 @@ public class AudioPool : MonoBehaviour
         }
         else Destroy(gameObject);
     }
+
+    void Start()
+    {
+        PlayBGM(0);
+    }
     // 흔한 싱글톤 만들기
     void BuildAudioPool() // 겜 시작 시 오디오풀 생성하는 함수
     {

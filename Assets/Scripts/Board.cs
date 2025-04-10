@@ -20,6 +20,7 @@ public class Board : MonoBehaviour
     private LevelData levelData;
     void Start()
     {
+        
         if(LevelDataCarrier.Instance.levelNum == -1)
         {
             LoadDemo();
@@ -129,6 +130,7 @@ public class Board : MonoBehaviour
     IEnumerator PlayPlacementAnimation()
     {
         yield return new WaitForSeconds(0.4f);
+        
         float time = 0f;
         float duration = 1f;
         float individualDuration = 0.3f;

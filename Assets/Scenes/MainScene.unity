@@ -216,7 +216,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ebe801cf1c13194b816af8f19fa4be0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skipbutton: {fileID: 31992770}
+  to_endscene_btn: {fileID: 0}
+  to_mainscene_btn: {fileID: 0}
+  to_startscene_btn: {fileID: 0}
+  is_counting: 0
   clickcount: 0
 --- !u!114 &31992770
 MonoBehaviour:
@@ -319,14 +322,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18cf6463c9acce54faa16161ca35d7f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destroyclip: {fileID: 8300000, guid: 6a804b55bc986564897b52f9be768be6, type: 3}
-  timeTXT: {fileID: 31992767}
+  timer_txt: {fileID: 31992767}
   cardcount: 0
   firstcard: {fileID: 0}
   secondcard: {fileID: 0}
-  endtext: {fileID: 1033981119}
-  EngingIMG: {fileID: 2106963260}
-  timeover: 0
+  timeover_txt: {fileID: 1033981119}
+  timeover_IMG: {fileID: 2106963260}
+  isTimeover: 0
 --- !u!82 &172847078
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1063,7 +1065,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98a989be7eaaf5e448edd2c0c584ebcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShuffleSfx: {fileID: 8300000, guid: 4a1e1dc953e829f4e805cfa227d4dd1a, type: 3}
 --- !u!4 &1678898580
 Transform:
   m_ObjectHideFlags: 0
@@ -1369,7 +1370,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0758da9265d76b4f8530c24161b9bb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgm: {fileID: 8300000, guid: fedefff81ef61284ea066c18c7098bc6, type: 3}
+  sfxClips: []
+  bgmClips: []
+  sfxPoolSize: 10
 --- !u!4 &2097036268
 Transform:
   m_ObjectHideFlags: 0

@@ -513,7 +513,7 @@ MonoBehaviour:
   front: {fileID: 2914789796802865403}
   back: {fileID: 5459469440601091407}
   Anim: {fileID: 4499229225807340018}
-  mybutton: {fileID: 1108253011721757054}
+  card_BTN: {fileID: 1108253011721757054}
   frontimage: {fileID: 6755486438531906988}
   designatedPosition: {x: 0, y: 0, z: 0}
 --- !u!82 &4160518407539362812
