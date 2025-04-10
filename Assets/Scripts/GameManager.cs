@@ -49,7 +49,7 @@ public class Gamemanager : MonoBehaviour
             EngingIMG.SetActive(true);
         }
     }
-    public void onCareMatched()
+    public void OnCardMatched()
     {
         timer_time += 5f; // 시간 보너스
     }
@@ -62,7 +62,7 @@ public class Gamemanager : MonoBehaviour
             firstcard.DestroyCard();
             secondcard.DestroyCard();
             cardcount -= 2;
-            onCareMatched();
+            OnCardMatched();
         }
         else
         {

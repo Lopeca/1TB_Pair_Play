@@ -18,7 +18,7 @@ public class Card : MonoBehaviour
     void Start()
     {
         // mybutton = GetComponentInChildren<Button>(); // 버튼 직접 할당하지 않고 Card 자식에 있는 버튼 자동서칭
-        mybutton.interactable = true; // 타임오버나 게임 종료 시 카드가 눌리지 않도록 상호작용 여부 on,off 관리
+        //mybutton.interactable = true; // 타임오버나 게임 종료 시 카드가 눌리지 않도록 상호작용 여부 on,off 관리
         AudioSource = GetComponent<AudioSource>();
     }
 
