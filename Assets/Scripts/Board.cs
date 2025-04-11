@@ -135,7 +135,7 @@ public class Board : MonoBehaviour
         float time = 0f;
         float duration = 1f;
         float individualDuration = 0.3f;
-        AudioPool.Instance.PlaySFX(3, 0.1f);
+        AudioPool.Instance.PlaySFX(3, 0.5f);
         cards = cards.OrderBy(x => Random.Range(0, 100)).ToList();
         while (time < duration)
         {

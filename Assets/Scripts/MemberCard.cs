@@ -5,14 +5,14 @@ using UnityEngine.UI;
 
 public class MemberCard : MonoBehaviour
 {
-    // UI Button ÄÄÆ÷³ÍÆ® (Inspector¿¡¼­ ÇÒ´ç)
-    public Button nextSpriteButton;      // ´ÙÀ½ ÀÌ¹ÌÁö·Î º¯°æÇÏ´Â ¹öÆ°
-    public Button previousSpriteButton;  // ÀÌÀü ÀÌ¹ÌÁö·Î º¯°æÇÏ´Â ¹öÆ°
+    // UI Button ì»´í¬ë„ŒíŠ¸ (Inspectorì—ì„œ í• ë‹¹)
+    public Button nextSpriteButton;      // ë‹¤ìŒ ì´ë¯¸ì§€ë¡œ ë³€ê²½í•˜ëŠ” ë²„íŠ¼
+    public Button previousSpriteButton;  // ì´ì „ ì´ë¯¸ì§€ë¡œ ë³€ê²½í•˜ëŠ” ë²„íŠ¼
 
-    // ½ºÇÁ¶óÀÌÆ® ·»´õ·¯ (¹öÆ° Å¬¸¯ ½Ã ÀÌ¹ÌÁö°¡ º¯°æµÉ ´ë»ó)
+    // ìŠ¤í”„ë¼ì´íŠ¸ ë Œë”ëŸ¬ (ë²„íŠ¼ í´ë¦­ ì‹œ ì´ë¯¸ì§€ê°€ ë³€ê²½ë  ëŒ€ìƒ)
     public SpriteRenderer spriteRenderer;
 
-    // ½ºÇÁ¶óÀÌÆ® ÆÄÀÏÀÇ ½ÃÀÛ ¹× Á¾·á ÀÎµ¦½º
+    // ìŠ¤í”„ë¼ì´íŠ¸ íŒŒì¼ì˜ ì‹œì‘ ë° ì¢…ë£Œ ì¸ë±ìŠ¤
     public int startSpriteIndex = 1;
     public int endSpriteIndex = 5;
 
@@ -21,11 +21,11 @@ public class MemberCard : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // ÃÊ±â ÀÌ¹ÌÁö ÀÎµ¦½º ¼³Á¤
+        // ì´ˆê¸° ì´ë¯¸ì§€ ì¸ë±ìŠ¤ ì„¤ì •
         currentSpriteIndex = startSpriteIndex;
         UpdateSprite();
 
-        // ¹öÆ° ÀÌº¥Æ® ¸®½º³Ê µî·Ï
+        // ë²„íŠ¼ ì´ë²¤íŠ¸ ë¦¬ìŠ¤ë„ˆ ë“±ë¡
         if (nextSpriteButton != null)
         {
             nextSpriteButton.onClick.AddListener(NextSprite);
@@ -35,12 +35,12 @@ public class MemberCard : MonoBehaviour
             previousSpriteButton.onClick.AddListener(PreviousSprite);
         }
     }
-    // ´ÙÀ½ ÀÌ¹ÌÁö·Î ÀüÈ¯ÇÏ´Â ¸Ş¼Òµå
+    // ë‹¤ìŒ ì´ë¯¸ì§€ë¡œ ì „í™˜í•˜ëŠ” ë©”ì†Œë“œ
     public void NextSprite()
     {
-        Debug.Log("NextSprite() È£ÃâµÊ. ÇöÀç ÀÎµ¦½º: " + currentSpriteIndex);
+        Debug.Log("NextSprite() í˜¸ì¶œë¨. í˜„ì¬ ì¸ë±ìŠ¤: " + currentSpriteIndex);
         currentSpriteIndex++;
-        AudioPool.Instance.PlaySFX(0, 0.05f);
+        AudioPool.Instance.PlaySFX(1, 0.2f);
         if (currentSpriteIndex > endSpriteIndex)
         {
             currentSpriteIndex = startSpriteIndex;
@@ -48,11 +48,11 @@ public class MemberCard : MonoBehaviour
         UpdateSprite();
     }
 
-    // ÀÌÀü ÀÌ¹ÌÁö·Î ÀüÈ¯ÇÏ´Â ¸Ş¼Òµå
+    // ì´ì „ ì´ë¯¸ì§€ë¡œ ì „í™˜í•˜ëŠ” ë©”ì†Œë“œ
     public void PreviousSprite()
     {
         currentSpriteIndex--;
-        AudioPool.Instance.PlaySFX(0, 0.05f);
+        AudioPool.Instance.PlaySFX(1, 0.2f);
         if (currentSpriteIndex < startSpriteIndex)
         {
             currentSpriteIndex = endSpriteIndex;
@@ -60,10 +60,10 @@ public class MemberCard : MonoBehaviour
         UpdateSprite();
     }
 
-    // Resources Æú´õ¿¡¼­ ½ºÇÁ¶óÀÌÆ®¸¦ ·ÎµåÇÏ¿© SpriteRenderer¿¡ Àû¿ë
+    // Resources í´ë”ì—ì„œ ìŠ¤í”„ë¼ì´íŠ¸ë¥¼ ë¡œë“œí•˜ì—¬ SpriteRendererì— ì ìš©
     private void UpdateSprite()
     {
-        // ¼ıÀÚ°¡ µÎ ÀÚ¸® Çü½Ä("01", "02")À¸·Î Ç¥½ÃµÇµµ·Ï Æ÷¸Ë
+        // ìˆ«ìê°€ ë‘ ìë¦¬ í˜•ì‹("01", "02")ìœ¼ë¡œ í‘œì‹œë˜ë„ë¡ í¬ë§·
         string spriteName = "Member_" + currentSpriteIndex.ToString("D2");
         Sprite newSprite = Resources.Load<Sprite>(spriteName);
 
@@ -73,7 +73,7 @@ public class MemberCard : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("½ºÇÁ¶óÀÌÆ®¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù: " + spriteName);
+            Debug.LogWarning("ìŠ¤í”„ë¼ì´íŠ¸ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤: " + spriteName);
         }
 
 

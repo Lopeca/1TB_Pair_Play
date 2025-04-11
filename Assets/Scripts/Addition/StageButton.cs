@@ -18,7 +18,7 @@ public class StageButton : MonoBehaviour
     public void OnClickStageButton()
     {
         LevelDataCarrier.Instance.levelNum = index;
-        AudioPool.Instance.PlayBGM(1, 0.02f);
+        AudioPool.Instance.PlayBGM(1, 0.2f);
         SceneManager.LoadScene("MainScene");
     }
 }

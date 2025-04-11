@@ -11,7 +11,7 @@ public class SceneTransitBtn : MonoBehaviour
     public Button to_startscene_btn;
     public bool is_counting = false;
     public float clickcount = 0f;
-    // ½ºÅµ ¹öÆ° °ü·Ã º¯¼ö ¼±¾ğ
+    // ìŠ¤í‚µ ë²„íŠ¼ ê´€ë ¨ ë³€ìˆ˜ ì„ ì–¸
     void Start()
     {
         to_endscene_btn?.onClick.AddListener(SkipCardMatching);
@@ -39,35 +39,35 @@ public class SceneTransitBtn : MonoBehaviour
         if (clickcount >= 10f)
         {
             is_counting = false;
-            AudioPool.Instance.PlayBGM(2, 0.01f);
+            AudioPool.Instance.PlayBGM(2, 0.2f);
             SceneManager.LoadScene("EndScene");
         }
     }
-    // ¸ŞÀÎ½Å °¡´Â ¹öÆ°. ¹öÆ° ¼Ò¸® ³¯ µ¿¾È ´ë±âÇØ ÁÖ´Â ÇÔ¼ö
+    // ë©”ì¸ì‹  ê°€ëŠ” ë²„íŠ¼. ë²„íŠ¼ ì†Œë¦¬ ë‚  ë™ì•ˆ ëŒ€ê¸°í•´ ì£¼ëŠ” í•¨ìˆ˜
     IEnumerator ToMainScene()
     {
         to_mainscene_btn.interactable = false;
-        AudioPool.Instance.PlaySFX(0, 0.05f);
+        AudioPool.Instance.PlaySFX(0, 0.2f);
         yield return new WaitForSeconds(0.4f);
         to_mainscene_btn.interactable = true;
-        AudioPool.Instance.PlayBGM(1, 0.02f);
+        AudioPool.Instance.PlayBGM(1, 0.2f);
         SceneManager.LoadScene("MainScene");
     }
-    // ½ÃÀÛ½Å °¡´Â ¹öÆ°. ¹öÆ° ¼Ò¸® ³¯ µ¿¾È ´ë±âÇØ ÁÖ´Â ÇÔ¼ö
+    // ì‹œì‘ì‹  ê°€ëŠ” ë²„íŠ¼. ë²„íŠ¼ ì†Œë¦¬ ë‚  ë™ì•ˆ ëŒ€ê¸°í•´ ì£¼ëŠ” í•¨ìˆ˜
     IEnumerator ToStartScene()
     {
         to_startscene_btn.interactable = false;
-        AudioPool.Instance.PlaySFX(0, 0.05f);
+        AudioPool.Instance.PlaySFX(0, 0.2f);
         yield return new WaitForSeconds(0.4f);
         to_startscene_btn.interactable = true;
-        AudioPool.Instance.PlayBGM(0,0.01f);
+        AudioPool.Instance.PlayBGM(0,0.2f);
         LevelDataCarrier.Instance.levelNum = -1;
         SceneManager.LoadScene("StartScene");
     }
 
-    // ±Ùµ¥ ´Ù ÇØ³õ°í »ı°¢ÇØ º¸´Ï ¿Àµğ¿À¸Å´ÏÀú¸¦ DonDestroy ÇØµÎ°í Ç®¸µÇØµÖ¼­
-    // ½Å ¹Ù·Î ³Ñ¾î°¡µµ ¼Ò¸® Àß Àç»ıµÇÁö ¾Ê³ª¿ä...? ¿Ö ÀÌ·¯°í ÀÖ¾úÁö
-    // ½ºÅµ¹öÆ° ¸»°í´Â Addlistenerµµ ÇÒ ÇÊ¿ä ¾ø°í ÄÚ·çÆ¾µµ ¾È ½áµµ µÆ´ø °Å ¾Æ³Ä??
+    // ê·¼ë° ë‹¤ í•´ë†“ê³  ìƒê°í•´ ë³´ë‹ˆ ì˜¤ë””ì˜¤ë§¤ë‹ˆì €ë¥¼ DonDestroy í•´ë‘ê³  í’€ë§í•´ë‘¬ì„œ
+    // ì‹  ë°”ë¡œ ë„˜ì–´ê°€ë„ ì†Œë¦¬ ì˜ ì¬ìƒë˜ì§€ ì•Šë‚˜ìš”...? ì™œ ì´ëŸ¬ê³  ìˆì—ˆì§€
+    // ìŠ¤í‚µë²„íŠ¼ ë§ê³ ëŠ” Addlistenerë„ í•  í•„ìš” ì—†ê³  ì½”ë£¨í‹´ë„ ì•ˆ ì¨ë„ ëë˜ ê±° ì•„ëƒ??
 
 }
 

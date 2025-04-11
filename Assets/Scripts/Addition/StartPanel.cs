@@ -5,13 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class StartPanel : MonoBehaviour
 {
-    // (½ÂÈ­) µ¥¸ğ ½ºÅ×ÀÌÁö ¹öÆ°ÀÌ ¸ÕÀú ¸¸µé¾îÁ®¼­ µ¹¾Æ°¡°í ÀÖ´ø °Ç ÀÏ´Ü ³ÀµÎ°Ú½À´Ï´Ù
+    // (ìŠ¹í™”) ë°ëª¨ ìŠ¤í…Œì´ì§€ ë²„íŠ¼ì´ ë¨¼ì € ë§Œë“¤ì–´ì ¸ì„œ ëŒì•„ê°€ê³  ìˆë˜ ê±´ ì¼ë‹¨ ëƒ…ë‘ê² ìŠµë‹ˆë‹¤
     public GameObject levelSelectPanel;
 
     public void OnClickDemoGameBtn()
     {
         
-        AudioPool.Instance.PlayBGM(1, 0.02f);
+        AudioPool.Instance.PlayBGM(1, 0.2f);
         SceneManager.LoadScene("MainScene");
     }
     public void OnClickLevelSelectMenu()

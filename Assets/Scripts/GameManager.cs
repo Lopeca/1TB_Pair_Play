@@ -5,19 +5,19 @@ using UnityEngine.UI;
 
 public class Gamemanager : MonoBehaviour
 {
-    //ÀÌÇÏ ½Ã°£ °ü·Ã - MainScene ·Îµå ½Ã ½Ã°£ 0ÃÊ·Î ÃÊ±âÈ­
+    //ì´í•˜ ì‹œê°„ ê´€ë ¨ - MainScene ë¡œë“œ ì‹œ ì‹œê°„ 0ì´ˆë¡œ ì´ˆê¸°í™”
     float timer_time = 20f;
     public Text timer_txt;
-    //ÀÌÇÏ Ä«µå µÚÁı±â ·ÎÁ÷ °ü·Ã
+    //ì´í•˜ ì¹´ë“œ ë’¤ì§‘ê¸° ë¡œì§ ê´€ë ¨
     public int cardcount = 20;
     public Card firstcard;
     public Card secondcard;
-    // ÀÌÇÏ °ÔÀÓ ¿£µù °ü·Ã : Å¸ÀÓ¿À¹ö ½Ã¿Í Å¬¸®¾î ½ÃÀÇ UI º¯È­´Â ³íÀÇ ÈÄ Á¦ÀÛ ¿¹Á¤
+    // ì´í•˜ ê²Œì„ ì—”ë”© ê´€ë ¨ : íƒ€ì„ì˜¤ë²„ ì‹œì™€ í´ë¦¬ì–´ ì‹œì˜ UI ë³€í™”ëŠ” ë…¼ì˜ í›„ ì œì‘ ì˜ˆì •
     public GameObject timeover_txt;
     public GameObject timeover_IMG;
     public bool isTimeover = false;
 
-    // ½Ì±ÛÅæ
+    // ì‹±ê¸€í†¤
     public static Gamemanager Instance;
 
     private void Awake()
@@ -31,24 +31,24 @@ public class Gamemanager : MonoBehaviour
 
     void Update()
     {
-        if (!(cardcount == 0 || isTimeover)) // Ä«µåÄ«¿îÆ®°¡ 0ÀÌ µÇ°Å³ª Å¸ÀÓ¿À¹ö°¡ µÇ¸é Å¸ÀÌ¸Ó Á¤Áö
+        if (!(cardcount == 0 || isTimeover)) // ì¹´ë“œì¹´ìš´íŠ¸ê°€ 0ì´ ë˜ê±°ë‚˜ íƒ€ì„ì˜¤ë²„ê°€ ë˜ë©´ íƒ€ì´ë¨¸ ì •ì§€
         {
-            timer_time -= Time.unscaledDeltaTime; // Ä«µå ¾Ö´Ï¸ÅÀÌ¼ÇÀÌ³ª UI¿¡ ¾Ö´Ï¸ÅÀÌ¼Ç ³ÖÀ» ½Ã Å¸ÀÌ¸Ó°¡ ¸ØÃçµµ ÁøÇàÇÏ±â À§ÇØ unscaled »ç¿ë
-            timer_time = Mathf.Max(timer_time, 0f); // À½¼ö ¹æÁö
-            timer_txt.text = $"³²Àº ½Ã°£:\n{timer_time.ToString("N2")}"; // È­¸é¿¡´Â ³²Àº ½Ã°£À» Ç¥½Ã!
+            timer_time -= Time.unscaledDeltaTime; // ì¹´ë“œ ì• ë‹ˆë§¤ì´ì…˜ì´ë‚˜ UIì— ì• ë‹ˆë§¤ì´ì…˜ ë„£ì„ ì‹œ íƒ€ì´ë¨¸ê°€ ë©ˆì¶°ë„ ì§„í–‰í•˜ê¸° ìœ„í•´ unscaled ì‚¬ìš©
+            timer_time = Mathf.Max(timer_time, 0f); // ìŒìˆ˜ ë°©ì§€
+            timer_txt.text = $"ë‚¨ì€ ì‹œê°„:\n{timer_time.ToString("N2")}"; // í™”ë©´ì—ëŠ” ë‚¨ì€ ì‹œê°„ì„ í‘œì‹œ!
         }
 
-        if (timer_time <= 0f && !isTimeover) // Å¸ÀÓ¿À¹ö ½Ã ¿£µù
+        if (timer_time <= 0f && !isTimeover) // íƒ€ì„ì˜¤ë²„ ì‹œ ì—”ë”©
         {
             isTimeover = true;
-            timer_txt.text = "<color=red>Å¸ÀÓ ¿À¹ö!</color>";
+            timer_txt.text = "<color=red>íƒ€ì„ ì˜¤ë²„!</color>";
             timeover_txt.SetActive(true);
             timeover_IMG.SetActive(true);
         }
     }
     public void OnCardMatched()
     {
-        timer_time += 5f; // ½Ã°£ º¸³Ê½º
+        timer_time += 5f; // ì‹œê°„ ë³´ë„ˆìŠ¤
     }
 
     public void IsSameCard()
@@ -68,9 +68,9 @@ public class Gamemanager : MonoBehaviour
         firstcard = null;
         secondcard = null;
 
-        if (cardcount == 0) // °ÔÀÓ Å¬¸®¾î ½Ã ¿£µù
+        if (cardcount == 0) // ê²Œì„ í´ë¦¬ì–´ ì‹œ ì—”ë”©
         {
-            AudioPool.Instance.PlayBGM(2, 0.01f);
+            AudioPool.Instance.PlayBGM(2, 0.2f);
             SceneManager.LoadScene("EndScene");
         }
     }
